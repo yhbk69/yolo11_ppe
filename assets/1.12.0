@@ -1,4 +1,0 @@
-Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
-Requirement already satisfied: onnx in c:\users\fxleg\.conda\envs\yolov7\lib\site-packages (1.17.0)
-Requirement already satisfied: numpy>=1.20 in c:\users\fxleg\.conda\envs\yolov7\lib\site-packages (from onnx) (1.24.1)
-Requirement already satisfied: protobuf>=3.20.2 in c:\users\fxleg\.conda\envs\yolov7\lib\site-packages (from onnx) (5.29.5)
