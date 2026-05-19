@@ -1,0 +1,1397 @@
+YOLOV11/
+├── .gitignore
+├── 1.12.0
+├── 1.heatmap.py
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── README.zh-CN.md
+├── mkdocs.yml
+├── predict.py
+├── predict2.py
+├── pyproject.toml
+├── python
+├── train.py
+├── train2.py
+├── xml_to_txt.py
+├── yolo11n.pt
+├── yolo11x.pt
+└── yolov8n.pt
+└── 查看yolo模型结构.py
+├── .github/
+│   └── dependabot.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug-report.yml
+│   │   ├── config.yml
+│   │   ├── feature-request.yml
+│   │   └── question.yml
+│   ├── workflows/
+│   │   ├── ci.yaml
+│   │   ├── cla.yml
+│   │   ├── codeql.yaml
+│   │   ├── docker.yaml
+│   │   ├── docs.yml
+│   │   ├── format.yml
+│   │   ├── links.yml
+│   │   ├── merge-main-into-prs.yml
+│   │   ├── publish.yml
+│   │   └── stale.yml
+├── .idea/
+│   ├── .gitignore
+│   ├── YOLOV11.iml
+│   ├── misc.xml
+│   ├── modules.xml
+│   └── workspace.xml
+│   ├── inspectionProfiles/
+│   │   └── profiles_settings.xml
+├── datasets/
+├── docker/
+│   ├── Dockerfile
+│   ├── Dockerfile-arm64
+│   ├── Dockerfile-conda
+│   ├── Dockerfile-cpu
+│   ├── Dockerfile-jetson-jetpack4
+│   ├── Dockerfile-jetson-jetpack5
+│   ├── Dockerfile-jetson-jetpack6
+│   ├── Dockerfile-python
+│   └── Dockerfile-runner
+├── docs/
+│   ├── README.md
+│   ├── build_docs.py
+│   ├── build_reference.py
+│   ├── coming_soon_template.md
+│   └── mkdocs_github_authors.yaml
+│   ├── en/
+│   │   ├── CNAME
+│   │   ├── index.md
+│   │   ├── quickstart.md
+│   │   └── robots.txt
+│   │   ├── datasets/
+│   │   │   └── index.md
+│   │   │   ├── classify/
+│   │   │   │   ├── caltech101.md
+│   │   │   │   ├── caltech256.md
+│   │   │   │   ├── cifar10.md
+│   │   │   │   ├── cifar100.md
+│   │   │   │   ├── fashion-mnist.md
+│   │   │   │   ├── imagenet.md
+│   │   │   │   ├── imagenet10.md
+│   │   │   │   ├── imagenette.md
+│   │   │   │   ├── imagewoof.md
+│   │   │   │   ├── index.md
+│   │   │   │   └── mnist.md
+│   │   │   ├── detect/
+│   │   │   │   ├── african-wildlife.md
+│   │   │   │   ├── argoverse.md
+│   │   │   │   ├── brain-tumor.md
+│   │   │   │   ├── coco.md
+│   │   │   │   ├── coco8.md
+│   │   │   │   ├── globalwheat2020.md
+│   │   │   │   ├── index.md
+│   │   │   │   ├── lvis.md
+│   │   │   │   ├── objects365.md
+│   │   │   │   ├── open-images-v7.md
+│   │   │   │   ├── roboflow-100.md
+│   │   │   │   ├── signature.md
+│   │   │   │   ├── sku-110k.md
+│   │   │   │   ├── visdrone.md
+│   │   │   │   ├── voc.md
+│   │   │   │   └── xview.md
+│   │   │   ├── explorer/
+│   │   │   │   ├── api.md
+│   │   │   │   ├── dashboard.md
+│   │   │   │   ├── explorer.ipynb
+│   │   │   │   └── index.md
+│   │   │   ├── obb/
+│   │   │   │   ├── dota-v2.md
+│   │   │   │   ├── dota8.md
+│   │   │   │   └── index.md
+│   │   │   ├── pose/
+│   │   │   │   ├── coco.md
+│   │   │   │   ├── coco8-pose.md
+│   │   │   │   ├── hand-keypoints.md
+│   │   │   │   ├── index.md
+│   │   │   │   └── tiger-pose.md
+│   │   │   ├── segment/
+│   │   │   │   ├── carparts-seg.md
+│   │   │   │   ├── coco.md
+│   │   │   │   ├── coco8-seg.md
+│   │   │   │   ├── crack-seg.md
+│   │   │   │   ├── index.md
+│   │   │   │   └── package-seg.md
+│   │   │   ├── track/
+│   │   │   │   └── index.md
+│   │   ├── guides/
+│   │   │   ├── analytics.md
+│   │   │   ├── azureml-quickstart.md
+│   │   │   ├── conda-quickstart.md
+│   │   │   ├── coral-edge-tpu-on-raspberry-pi.md
+│   │   │   ├── data-collection-and-annotation.md
+│   │   │   ├── deepstream-nvidia-jetson.md
+│   │   │   ├── defining-project-goals.md
+│   │   │   ├── distance-calculation.md
+│   │   │   ├── docker-quickstart.md
+│   │   │   ├── heatmaps.md
+│   │   │   ├── hyperparameter-tuning.md
+│   │   │   ├── index.md
+│   │   │   ├── instance-segmentation-and-tracking.md
+│   │   │   ├── isolating-segmentation-objects.md
+│   │   │   ├── kfold-cross-validation.md
+│   │   │   ├── model-deployment-options.md
+│   │   │   ├── model-deployment-practices.md
+│   │   │   ├── model-evaluation-insights.md
+│   │   │   ├── model-monitoring-and-maintenance.md
+│   │   │   ├── model-testing.md
+│   │   │   ├── model-training-tips.md
+│   │   │   ├── nvidia-jetson.md
+│   │   │   ├── object-blurring.md
+│   │   │   ├── object-counting.md
+│   │   │   ├── object-cropping.md
+│   │   │   ├── optimizing-openvino-latency-vs-throughput-modes.md
+│   │   │   ├── parking-management.md
+│   │   │   ├── preprocessing_annotated_data.md
+│   │   │   ├── queue-management.md
+│   │   │   ├── raspberry-pi.md
+│   │   │   ├── region-counting.md
+│   │   │   ├── ros-quickstart.md
+│   │   │   ├── sahi-tiled-inference.md
+│   │   │   ├── security-alarm-system.md
+│   │   │   ├── speed-estimation.md
+│   │   │   ├── steps-of-a-cv-project.md
+│   │   │   ├── streamlit-live-inference.md
+│   │   │   ├── triton-inference-server.md
+│   │   │   ├── view-results-in-terminal.md
+│   │   │   ├── vision-eye.md
+│   │   │   ├── workouts-monitoring.md
+│   │   │   ├── yolo-common-issues.md
+│   │   │   ├── yolo-performance-metrics.md
+│   │   │   └── yolo-thread-safe-inference.md
+│   │   ├── help/
+│   │   │   ├── CI.md
+│   │   │   ├── CLA.md
+│   │   │   ├── FAQ.md
+│   │   │   ├── code_of_conduct.md
+│   │   │   ├── contributing.md
+│   │   │   ├── environmental-health-safety.md
+│   │   │   ├── index.md
+│   │   │   ├── minimum_reproducible_example.md
+│   │   │   ├── privacy.md
+│   │   │   └── security.md
+│   │   ├── hub/
+│   │   │   ├── cloud-training.md
+│   │   │   ├── datasets.md
+│   │   │   ├── index.md
+│   │   │   ├── inference-api.md
+│   │   │   ├── integrations.md
+│   │   │   ├── models.md
+│   │   │   ├── pro.md
+│   │   │   ├── projects.md
+│   │   │   ├── quickstart.md
+│   │   │   └── teams.md
+│   │   │   ├── api/
+│   │   │   │   └── index.md
+│   │   │   ├── app/
+│   │   │   │   ├── android.md
+│   │   │   │   ├── index.md
+│   │   │   │   └── ios.md
+│   │   ├── integrations/
+│   │   │   ├── amazon-sagemaker.md
+│   │   │   ├── clearml.md
+│   │   │   ├── comet.md
+│   │   │   ├── coreml.md
+│   │   │   ├── dvc.md
+│   │   │   ├── edge-tpu.md
+│   │   │   ├── google-colab.md
+│   │   │   ├── gradio.md
+│   │   │   ├── ibm-watsonx.md
+│   │   │   ├── index.md
+│   │   │   ├── jupyterlab.md
+│   │   │   ├── kaggle.md
+│   │   │   ├── mlflow.md
+│   │   │   ├── ncnn.md
+│   │   │   ├── neural-magic.md
+│   │   │   ├── onnx.md
+│   │   │   ├── openvino.md
+│   │   │   ├── paddlepaddle.md
+│   │   │   ├── paperspace.md
+│   │   │   ├── ray-tune.md
+│   │   │   ├── roboflow.md
+│   │   │   ├── tensorboard.md
+│   │   │   ├── tensorrt.md
+│   │   │   ├── tf-graphdef.md
+│   │   │   ├── tf-savedmodel.md
+│   │   │   ├── tfjs.md
+│   │   │   ├── tflite.md
+│   │   │   ├── torchscript.md
+│   │   │   ├── vscode.md
+│   │   │   └── weights-biases.md
+│   │   ├── macros/
+│   │   │   ├── augmentation-args.md
+│   │   │   ├── export-args.md
+│   │   │   ├── export-table.md
+│   │   │   ├── predict-args.md
+│   │   │   ├── track-args.md
+│   │   │   ├── train-args.md
+│   │   │   ├── validation-args.md
+│   │   │   └── visualization-args.md
+│   │   ├── models/
+│   │   │   ├── fast-sam.md
+│   │   │   ├── index.md
+│   │   │   ├── mobile-sam.md
+│   │   │   ├── rtdetr.md
+│   │   │   ├── sam-2.md
+│   │   │   ├── sam.md
+│   │   │   ├── yolo-nas.md
+│   │   │   ├── yolo-world.md
+│   │   │   ├── yolo11.md
+│   │   │   ├── yolov10.md
+│   │   │   ├── yolov3.md
+│   │   │   ├── yolov4.md
+│   │   │   ├── yolov5.md
+│   │   │   ├── yolov6.md
+│   │   │   ├── yolov7.md
+│   │   │   ├── yolov8.md
+│   │   │   └── yolov9.md
+│   │   ├── modes/
+│   │   │   ├── benchmark.md
+│   │   │   ├── export.md
+│   │   │   ├── index.md
+│   │   │   ├── predict.md
+│   │   │   ├── track.md
+│   │   │   ├── train.md
+│   │   │   └── val.md
+│   │   ├── reference/
+│   │   │   ├── cfg/
+│   │   │   │   └── __init__.md
+│   │   │   ├── data/
+│   │   │   │   ├── annotator.md
+│   │   │   │   ├── augment.md
+│   │   │   │   ├── base.md
+│   │   │   │   ├── build.md
+│   │   │   │   ├── converter.md
+│   │   │   │   ├── dataset.md
+│   │   │   │   ├── loaders.md
+│   │   │   │   ├── split_dota.md
+│   │   │   │   └── utils.md
+│   │   │   │   ├── explorer/
+│   │   │   │   │   ├── explorer.md
+│   │   │   │   │   └── utils.md
+│   │   │   │   │   ├── gui/
+│   │   │   │   │   │   └── dash.md
+│   │   │   ├── engine/
+│   │   │   │   ├── exporter.md
+│   │   │   │   ├── model.md
+│   │   │   │   ├── predictor.md
+│   │   │   │   ├── results.md
+│   │   │   │   ├── trainer.md
+│   │   │   │   ├── tuner.md
+│   │   │   │   └── validator.md
+│   │   │   ├── hub/
+│   │   │   │   ├── __init__.md
+│   │   │   │   ├── auth.md
+│   │   │   │   ├── session.md
+│   │   │   │   └── utils.md
+│   │   │   │   ├── google/
+│   │   │   │   │   └── __init__.md
+│   │   │   ├── models/
+│   │   │   │   ├── fastsam/
+│   │   │   │   │   ├── model.md
+│   │   │   │   │   ├── predict.md
+│   │   │   │   │   ├── utils.md
+│   │   │   │   │   └── val.md
+│   │   │   │   ├── nas/
+│   │   │   │   │   ├── model.md
+│   │   │   │   │   ├── predict.md
+│   │   │   │   │   └── val.md
+│   │   │   │   ├── rtdetr/
+│   │   │   │   │   ├── model.md
+│   │   │   │   │   ├── predict.md
+│   │   │   │   │   ├── train.md
+│   │   │   │   │   └── val.md
+│   │   │   │   ├── sam/
+│   │   │   │   │   ├── amg.md
+│   │   │   │   │   ├── build.md
+│   │   │   │   │   ├── model.md
+│   │   │   │   │   └── predict.md
+│   │   │   │   │   ├── modules/
+│   │   │   │   │   │   ├── blocks.md
+│   │   │   │   │   │   ├── decoders.md
+│   │   │   │   │   │   ├── encoders.md
+│   │   │   │   │   │   ├── memory_attention.md
+│   │   │   │   │   │   ├── sam.md
+│   │   │   │   │   │   ├── tiny_encoder.md
+│   │   │   │   │   │   ├── transformer.md
+│   │   │   │   │   │   └── utils.md
+│   │   │   │   ├── utils/
+│   │   │   │   │   ├── loss.md
+│   │   │   │   │   └── ops.md
+│   │   │   │   ├── yolo/
+│   │   │   │   │   └── model.md
+│   │   │   │   │   ├── classify/
+│   │   │   │   │   │   ├── predict.md
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── val.md
+│   │   │   │   │   ├── detect/
+│   │   │   │   │   │   ├── predict.md
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── val.md
+│   │   │   │   │   ├── obb/
+│   │   │   │   │   │   ├── predict.md
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── val.md
+│   │   │   │   │   ├── pose/
+│   │   │   │   │   │   ├── predict.md
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── val.md
+│   │   │   │   │   ├── segment/
+│   │   │   │   │   │   ├── predict.md
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── val.md
+│   │   │   │   │   ├── world/
+│   │   │   │   │   │   ├── train.md
+│   │   │   │   │   │   └── train_world.md
+│   │   │   ├── nn/
+│   │   │   │   ├── autobackend.md
+│   │   │   │   └── tasks.md
+│   │   │   │   ├── modules/
+│   │   │   │   │   ├── activation.md
+│   │   │   │   │   ├── block.md
+│   │   │   │   │   ├── conv.md
+│   │   │   │   │   ├── head.md
+│   │   │   │   │   ├── transformer.md
+│   │   │   │   │   └── utils.md
+│   │   │   ├── solutions/
+│   │   │   │   ├── ai_gym.md
+│   │   │   │   ├── analytics.md
+│   │   │   │   ├── distance_calculation.md
+│   │   │   │   ├── heatmap.md
+│   │   │   │   ├── object_counter.md
+│   │   │   │   ├── parking_management.md
+│   │   │   │   ├── queue_management.md
+│   │   │   │   ├── speed_estimation.md
+│   │   │   │   └── streamlit_inference.md
+│   │   │   ├── trackers/
+│   │   │   │   ├── basetrack.md
+│   │   │   │   ├── bot_sort.md
+│   │   │   │   ├── byte_tracker.md
+│   │   │   │   └── track.md
+│   │   │   │   ├── utils/
+│   │   │   │   │   ├── gmc.md
+│   │   │   │   │   ├── kalman_filter.md
+│   │   │   │   │   └── matching.md
+│   │   │   ├── utils/
+│   │   │   │   ├── __init__.md
+│   │   │   │   ├── autobatch.md
+│   │   │   │   ├── benchmarks.md
+│   │   │   │   ├── checks.md
+│   │   │   │   ├── dist.md
+│   │   │   │   ├── downloads.md
+│   │   │   │   ├── errors.md
+│   │   │   │   ├── files.md
+│   │   │   │   ├── instance.md
+│   │   │   │   ├── loss.md
+│   │   │   │   ├── metrics.md
+│   │   │   │   ├── ops.md
+│   │   │   │   ├── patches.md
+│   │   │   │   ├── plotting.md
+│   │   │   │   ├── tal.md
+│   │   │   │   ├── torch_utils.md
+│   │   │   │   ├── triton.md
+│   │   │   │   └── tuner.md
+│   │   │   │   ├── callbacks/
+│   │   │   │   │   ├── base.md
+│   │   │   │   │   ├── clearml.md
+│   │   │   │   │   ├── comet.md
+│   │   │   │   │   ├── dvc.md
+│   │   │   │   │   ├── hub.md
+│   │   │   │   │   ├── mlflow.md
+│   │   │   │   │   ├── neptune.md
+│   │   │   │   │   ├── raytune.md
+│   │   │   │   │   ├── tensorboard.md
+│   │   │   │   │   └── wb.md
+│   │   ├── solutions/
+│   │   │   └── index.md
+│   │   ├── tasks/
+│   │   │   ├── classify.md
+│   │   │   ├── detect.md
+│   │   │   ├── index.md
+│   │   │   ├── obb.md
+│   │   │   ├── pose.md
+│   │   │   └── segment.md
+│   │   ├── usage/
+│   │   │   ├── callbacks.md
+│   │   │   ├── cfg.md
+│   │   │   ├── cli.md
+│   │   │   ├── engine.md
+│   │   │   ├── python.md
+│   │   │   └── simple-utilities.md
+│   │   ├── yolov5/
+│   │   │   ├── index.md
+│   │   │   └── quickstart_tutorial.md
+│   │   │   ├── environments/
+│   │   │   │   ├── aws_quickstart_tutorial.md
+│   │   │   │   ├── azureml_quickstart_tutorial.md
+│   │   │   │   ├── docker_image_quickstart_tutorial.md
+│   │   │   │   └── google_cloud_quickstart_tutorial.md
+│   │   │   ├── tutorials/
+│   │   │   │   ├── architecture_description.md
+│   │   │   │   ├── clearml_logging_integration.md
+│   │   │   │   ├── comet_logging_integration.md
+│   │   │   │   ├── hyperparameter_evolution.md
+│   │   │   │   ├── model_ensembling.md
+│   │   │   │   ├── model_export.md
+│   │   │   │   ├── model_pruning_and_sparsity.md
+│   │   │   │   ├── multi_gpu_training.md
+│   │   │   │   ├── neural_magic_pruning_quantization.md
+│   │   │   │   ├── pytorch_hub_model_loading.md
+│   │   │   │   ├── roboflow_datasets_integration.md
+│   │   │   │   ├── test_time_augmentation.md
+│   │   │   │   ├── tips_for_best_training_results.md
+│   │   │   │   ├── train_custom_data.md
+│   │   │   │   └── transfer_learning_with_frozen_layers.md
+│   ├── overrides/
+│   │   └── main.html
+│   │   ├── assets/
+│   │   ├── javascript/
+│   │   │   └── extra.js
+│   │   ├── partials/
+│   │   │   ├── comments.html
+│   │   │   └── source-file.html
+│   │   ├── stylesheets/
+│   │   │   └── style.css
+├── examples/
+│   ├── README.md
+│   ├── heatmaps.ipynb
+│   ├── hub.ipynb
+│   ├── object_counting.ipynb
+│   ├── object_tracking.ipynb
+│   └── tutorial.ipynb
+│   ├── YOLOv8-Action-Recognition/
+│   │   ├── action_recognition.py
+│   │   ├── readme.md
+│   │   └── requirements.txt
+│   ├── YOLOv8-CPP-Inference/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── inference.cpp
+│   │   ├── inference.h
+│   │   └── main.cpp
+│   ├── YOLOv8-LibTorch-CPP-Inference/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   └── main.cc
+│   ├── YOLOv8-ONNXRuntime/
+│   │   ├── README.md
+│   │   └── main.py
+│   ├── YOLOv8-ONNXRuntime-CPP/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── inference.cpp
+│   │   ├── inference.h
+│   │   └── main.cpp
+│   ├── YOLOv8-ONNXRuntime-Rust/
+│   │   ├── Cargo.toml
+│   │   └── README.md
+│   │   ├── src/
+│   │   │   ├── cli.rs
+│   │   │   ├── lib.rs
+│   │   │   ├── main.rs
+│   │   │   ├── model.rs
+│   │   │   ├── ort_backend.rs
+│   │   │   └── yolo_result.rs
+│   ├── YOLOv8-OpenCV-int8-tflite-Python/
+│   │   ├── README.md
+│   │   └── main.py
+│   ├── YOLOv8-OpenCV-ONNX-Python/
+│   │   ├── README.md
+│   │   └── main.py
+│   ├── YOLOv8-OpenVINO-CPP-Inference/
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── inference.cc
+│   │   ├── inference.h
+│   │   └── main.cc
+│   ├── YOLOv8-Region-Counter/
+│   │   ├── readme.md
+│   │   └── yolov8_region_counter.py
+│   ├── YOLOv8-SAHI-Inference-Video/
+│   │   ├── readme.md
+│   │   └── yolov8_sahi.py
+│   ├── YOLOv8-Segmentation-ONNXRuntime-Python/
+│   │   ├── README.md
+│   │   └── main.py
+├── My_Fun/
+│   ├── 0.test.py
+│   ├── 1.可视化网络.py
+│   ├── 2.查看网络信息.py
+│   ├── 3.resize640.py
+│   ├── 4.resize2.py
+│   ├── 5.resize3.py
+│   ├── 6.resize4.py
+│   ├── YOLOV11_directory_structure.txt
+│   ├── YOLOV11_directory_tree.txt
+│   ├── onnx_to_engine.py
+│   ├── xml2label.py
+│   ├── 低精度onnx.py
+│   ├── 划分2.py
+│   ├── 划分3.py
+│   ├── 划分测试验证集.py
+│   ├── 统计数据集.py
+│   └── 转换为onnx.py
+│   ├── 1.result/
+│   ├── dataAug/
+│   │   ├── 2.py
+│   │   ├── 3.py
+│   │   ├── 4ul.py
+│   │   ├── 5.py
+│   │   └── aug1.py
+├── result/
+├── runs/
+│   ├── detect/
+│   │   ├── predict/
+│   │   ├── predict2/
+│   │   ├── predict3/
+│   │   ├── predict4/
+│   │   ├── predict5/
+│   │   ├── train/
+│   │   │   └── args.yaml
+│   │   │   ├── weights/
+│   │   ├── train10/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1753237261.admin.8632.0
+│   │   │   ├── weights/
+│   │   ├── train11/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753237539.admin.24572.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train12/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753347193.admin.24368.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train13/
+│   │   │   └── args.yaml
+│   │   │   ├── weights/
+│   │   ├── train14/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753846064.admin.33408.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train15/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753847171.admin.31068.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train16/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753926551.admin.36096.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train17/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1753928535.admin.496.0
+│   │   │   ├── weights/
+│   │   ├── train18/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1753928793.admin.11512.0
+│   │   │   ├── weights/
+│   │   ├── train19/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1753929592.admin.36572.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train2/
+│   │   │   └── args.yaml
+│   │   │   ├── weights/
+│   │   ├── train20/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1754960658.admin.37676.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train21/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1754989898.admin.13544.0
+│   │   │   ├── weights/
+│   │   ├── train22/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1754990037.admin.30088.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train23/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1754990222.admin.28448.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train24/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1755047410.admin.19836.0
+│   │   │   ├── weights/
+│   │   ├── train25/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755047460.admin.29700.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train26/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755048477.admin.28120.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train27/
+│   │   │   └── args.yaml
+│   │   │   ├── weights/
+│   │   ├── train28/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755062091.admin.28120.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train29/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755069033.admin.18740.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train3/
+│   │   │   ├── args.yaml
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train30/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755133110.admin.22076.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.engine
+│   │   │   │   ├── best.onnx
+│   │   │   │   ├── best.pt
+│   │   │   │   ├── best_.engine
+│   │   │   │   ├── best_.onnx
+│   │   │   │   └── last.pt
+│   │   ├── train31/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755501500.admin.29136.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train32/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755571829.admin.16868.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train33/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1755652906.admin.24984.0
+│   │   │   ├── weights/
+│   │   ├── train34/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1755652947.admin.28956.0
+│   │   │   ├── weights/
+│   │   ├── train35/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1755653718.admin.3012.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train36/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756190950.admin.26796.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train37/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756257198.admin.7024.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train38/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756280482.admin.17892.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train39/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756964872.admin.17888.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   ├── epoch0.pt
+│   │   │   │   └── last.pt
+│   │   ├── train4/
+│   │   │   ├── args.yaml
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.onnx
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train40/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756965237.admin.18320.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   ├── epoch0.pt
+│   │   │   │   └── last.pt
+│   │   ├── train402/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756966315.admin.5844.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   ├── epoch0.pt
+│   │   │   │   ├── epoch10.pt
+│   │   │   │   ├── epoch20.pt
+│   │   │   │   ├── epoch30.pt
+│   │   │   │   ├── epoch40.pt
+│   │   │   │   ├── epoch50.pt
+│   │   │   │   └── last.pt
+│   │   ├── train41/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756968422.admin.18296.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   ├── epoch0.pt
+│   │   │   │   ├── epoch10.pt
+│   │   │   │   ├── epoch20.pt
+│   │   │   │   ├── epoch30.pt
+│   │   │   │   ├── epoch40.pt
+│   │   │   │   ├── epoch50.pt
+│   │   │   │   ├── epoch60.pt
+│   │   │   │   ├── epoch70.pt
+│   │   │   │   └── last.pt
+│   │   ├── train42/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1756969599.admin.22072.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train43/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1757400554.admin.25464.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train44/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1757469332.admin.31168.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train45/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1757485057.admin.17652.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train46/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1757496605.admin.33668.0
+│   │   │   ├── weights/
+│   │   ├── train47/
+│   │   │   ├── args.yaml
+│   │   │   ├── events.out.tfevents.1757552764.admin.17068.0
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.engine
+│   │   │   │   ├── best.onnx
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train5/
+│   │   │   ├── args.yaml
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train6/
+│   │   │   ├── args.yaml
+│   │   │   ├── results.csv
+│   │   │   ├── weights/
+│   │   │   │   ├── best.pt
+│   │   │   │   └── last.pt
+│   │   ├── train7/
+│   │   │   └── args.yaml
+│   │   │   ├── weights/
+│   │   ├── train8/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1753237086.admin.2752.0
+│   │   │   ├── weights/
+│   │   ├── train9/
+│   │   │   ├── args.yaml
+│   │   │   └── events.out.tfevents.1753237104.admin.21264.0
+│   │   │   ├── weights/
+│   │   ├── val/
+│   │   ├── val2/
+│   │   ├── val3/
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_cli.py
+│   ├── test_cuda.py
+│   ├── test_engine.py
+│   ├── test_explorer.py
+│   ├── test_exports.py
+│   ├── test_integrations.py
+│   ├── test_python.py
+│   └── test_solutions.py
+├── ultralytics/
+│   └── __init__.py
+│   ├── assets/
+│   ├── cfg/
+│   │   ├── __init__.py
+│   │   └── default.yaml
+│   │   ├── datasets/
+│   │   │   ├── Argoverse.yaml
+│   │   │   ├── DOTAv1.5.yaml
+│   │   │   ├── DOTAv1.yaml
+│   │   │   ├── GlobalWheat2020.yaml
+│   │   │   ├── ImageNet.yaml
+│   │   │   ├── Objects365.yaml
+│   │   │   ├── SKU-110K.yaml
+│   │   │   ├── VOC.yaml
+│   │   │   ├── VOC_seat.yaml
+│   │   │   ├── VisDrone.yaml
+│   │   │   ├── african-wildlife.yaml
+│   │   │   ├── brain-tumor.yaml
+│   │   │   ├── carparts-seg.yaml
+│   │   │   ├── coco-pose.yaml
+│   │   │   ├── coco.yaml
+│   │   │   ├── coco128-seg.yaml
+│   │   │   ├── coco128.yaml
+│   │   │   ├── coco8-pose.yaml
+│   │   │   ├── coco8-seg.yaml
+│   │   │   ├── coco8.yaml
+│   │   │   ├── crack-seg.yaml
+│   │   │   ├── dota8.yaml
+│   │   │   ├── hand-keypoints.yaml
+│   │   │   ├── lvis.yaml
+│   │   │   ├── open-images-v7.yaml
+│   │   │   ├── package-seg.yaml
+│   │   │   ├── signature.yaml
+│   │   │   ├── tiger-pose.yaml
+│   │   │   └── xView.yaml
+│   │   ├── models/
+│   │   │   └── README.md
+│   │   │   ├── 11/
+│   │   │   │   ├── yolo11-cls.yaml
+│   │   │   │   ├── yolo11-obb.yaml
+│   │   │   │   ├── yolo11-pose.yaml
+│   │   │   │   ├── yolo11-seg.yaml
+│   │   │   │   └── yolo11.yaml
+│   │   │   ├── rt-detr/
+│   │   │   │   ├── rtdetr-l.yaml
+│   │   │   │   ├── rtdetr-resnet101.yaml
+│   │   │   │   ├── rtdetr-resnet50.yaml
+│   │   │   │   └── rtdetr-x.yaml
+│   │   │   ├── v10/
+│   │   │   │   ├── yolov10b.yaml
+│   │   │   │   ├── yolov10l.yaml
+│   │   │   │   ├── yolov10m.yaml
+│   │   │   │   ├── yolov10n.yaml
+│   │   │   │   ├── yolov10s.yaml
+│   │   │   │   └── yolov10x.yaml
+│   │   │   ├── v3/
+│   │   │   │   ├── yolov3-spp.yaml
+│   │   │   │   ├── yolov3-tiny.yaml
+│   │   │   │   └── yolov3.yaml
+│   │   │   ├── v5/
+│   │   │   │   ├── yolov5-p6.yaml
+│   │   │   │   └── yolov5.yaml
+│   │   │   ├── v6/
+│   │   │   │   └── yolov6.yaml
+│   │   │   ├── v8/
+│   │   │   │   ├── yolov8-cls-resnet101.yaml
+│   │   │   │   ├── yolov8-cls-resnet50.yaml
+│   │   │   │   ├── yolov8-cls.yaml
+│   │   │   │   ├── yolov8-ghost-p2.yaml
+│   │   │   │   ├── yolov8-ghost-p6.yaml
+│   │   │   │   ├── yolov8-ghost.yaml
+│   │   │   │   ├── yolov8-obb.yaml
+│   │   │   │   ├── yolov8-p2.yaml
+│   │   │   │   ├── yolov8-p6.yaml
+│   │   │   │   ├── yolov8-pose-p6.yaml
+│   │   │   │   ├── yolov8-pose.yaml
+│   │   │   │   ├── yolov8-rtdetr.yaml
+│   │   │   │   ├── yolov8-seg-p6.yaml
+│   │   │   │   ├── yolov8-seg.yaml
+│   │   │   │   ├── yolov8-world.yaml
+│   │   │   │   ├── yolov8-worldv2.yaml
+│   │   │   │   └── yolov8.yaml
+│   │   │   ├── v9/
+│   │   │   │   ├── yolov9c-seg.yaml
+│   │   │   │   ├── yolov9c.yaml
+│   │   │   │   ├── yolov9e-seg.yaml
+│   │   │   │   ├── yolov9e.yaml
+│   │   │   │   ├── yolov9m.yaml
+│   │   │   │   ├── yolov9s.yaml
+│   │   │   │   └── yolov9t.yaml
+│   │   ├── trackers/
+│   │   │   ├── botsort.yaml
+│   │   │   └── bytetrack.yaml
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   └── __init__.cpython-39.pyc
+│   ├── data/
+│   │   ├── __init__.py
+│   │   ├── annotator.py
+│   │   ├── augment.py
+│   │   ├── base.py
+│   │   ├── build.py
+│   │   ├── converter.py
+│   │   ├── dataset.py
+│   │   ├── loaders.py
+│   │   ├── split_dota.py
+│   │   └── utils.py
+│   │   ├── explorer/
+│   │   │   ├── __init__.py
+│   │   │   ├── explorer.py
+│   │   │   └── utils.py
+│   │   │   ├── gui/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── dash.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── explorer.cpython-38.pyc
+│   │   │   │   ├── explorer.cpython-39.pyc
+│   │   │   │   ├── utils.cpython-38.pyc
+│   │   │   │   └── utils.cpython-39.pyc
+│   │   ├── scripts/
+│   │   │   ├── download_weights.sh
+│   │   │   ├── get_coco.sh
+│   │   │   ├── get_coco128.sh
+│   │   │   └── get_imagenet.sh
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-311.pyc
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── augment.cpython-38.pyc
+│   │   │   ├── augment.cpython-39.pyc
+│   │   │   ├── base.cpython-311.pyc
+│   │   │   ├── base.cpython-38.pyc
+│   │   │   ├── base.cpython-39.pyc
+│   │   │   ├── build.cpython-38.pyc
+│   │   │   ├── build.cpython-39.pyc
+│   │   │   ├── converter.cpython-38.pyc
+│   │   │   ├── converter.cpython-39.pyc
+│   │   │   ├── dataset.cpython-38.pyc
+│   │   │   ├── dataset.cpython-39.pyc
+│   │   │   ├── loaders.cpython-38.pyc
+│   │   │   ├── loaders.cpython-39.pyc
+│   │   │   ├── utils.cpython-38.pyc
+│   │   │   └── utils.cpython-39.pyc
+│   ├── engine/
+│   │   ├── __init__.py
+│   │   ├── exporter.py
+│   │   ├── model.py
+│   │   ├── predictor.py
+│   │   ├── results.py
+│   │   ├── trainer.py
+│   │   ├── tuner.py
+│   │   └── validator.py
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── exporter.cpython-38.pyc
+│   │   │   ├── exporter.cpython-39.pyc
+│   │   │   ├── model.cpython-38.pyc
+│   │   │   ├── model.cpython-39.pyc
+│   │   │   ├── predictor.cpython-38.pyc
+│   │   │   ├── predictor.cpython-39.pyc
+│   │   │   ├── results.cpython-38.pyc
+│   │   │   ├── results.cpython-39.pyc
+│   │   │   ├── trainer.cpython-38.pyc
+│   │   │   ├── trainer.cpython-39.pyc
+│   │   │   ├── validator.cpython-38.pyc
+│   │   │   └── validator.cpython-39.pyc
+│   ├── hub/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── session.py
+│   │   └── utils.py
+│   │   ├── google/
+│   │   │   └── __init__.py
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── auth.cpython-38.pyc
+│   │   │   ├── auth.cpython-39.pyc
+│   │   │   ├── session.cpython-38.pyc
+│   │   │   ├── session.cpython-39.pyc
+│   │   │   ├── utils.cpython-38.pyc
+│   │   │   └── utils.cpython-39.pyc
+│   ├── models/
+│   │   └── __init__.py
+│   │   ├── fastsam/
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py
+│   │   │   ├── predict.py
+│   │   │   ├── utils.py
+│   │   │   └── val.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── model.cpython-38.pyc
+│   │   │   │   ├── model.cpython-39.pyc
+│   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   ├── utils.cpython-38.pyc
+│   │   │   │   ├── utils.cpython-39.pyc
+│   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   └── val.cpython-39.pyc
+│   │   ├── nas/
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py
+│   │   │   ├── predict.py
+│   │   │   └── val.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── model.cpython-38.pyc
+│   │   │   │   ├── model.cpython-39.pyc
+│   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   └── val.cpython-39.pyc
+│   │   ├── rtdetr/
+│   │   │   ├── __init__.py
+│   │   │   ├── model.py
+│   │   │   ├── predict.py
+│   │   │   ├── train.py
+│   │   │   └── val.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── model.cpython-38.pyc
+│   │   │   │   ├── model.cpython-39.pyc
+│   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   └── val.cpython-39.pyc
+│   │   ├── sam/
+│   │   │   ├── __init__.py
+│   │   │   ├── amg.py
+│   │   │   ├── build.py
+│   │   │   ├── model.py
+│   │   │   └── predict.py
+│   │   │   ├── modules/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── blocks.py
+│   │   │   │   ├── decoders.py
+│   │   │   │   ├── encoders.py
+│   │   │   │   ├── memory_attention.py
+│   │   │   │   ├── sam.py
+│   │   │   │   ├── tiny_encoder.py
+│   │   │   │   ├── transformer.py
+│   │   │   │   └── utils.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── blocks.cpython-38.pyc
+│   │   │   │   │   ├── blocks.cpython-39.pyc
+│   │   │   │   │   ├── decoders.cpython-38.pyc
+│   │   │   │   │   ├── decoders.cpython-39.pyc
+│   │   │   │   │   ├── encoders.cpython-38.pyc
+│   │   │   │   │   ├── encoders.cpython-39.pyc
+│   │   │   │   │   ├── memory_attention.cpython-38.pyc
+│   │   │   │   │   ├── memory_attention.cpython-39.pyc
+│   │   │   │   │   ├── sam.cpython-38.pyc
+│   │   │   │   │   ├── sam.cpython-39.pyc
+│   │   │   │   │   ├── tiny_encoder.cpython-38.pyc
+│   │   │   │   │   ├── tiny_encoder.cpython-39.pyc
+│   │   │   │   │   ├── transformer.cpython-38.pyc
+│   │   │   │   │   ├── transformer.cpython-39.pyc
+│   │   │   │   │   ├── utils.cpython-38.pyc
+│   │   │   │   │   └── utils.cpython-39.pyc
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── amg.cpython-38.pyc
+│   │   │   │   ├── amg.cpython-39.pyc
+│   │   │   │   ├── build.cpython-38.pyc
+│   │   │   │   ├── build.cpython-39.pyc
+│   │   │   │   ├── model.cpython-38.pyc
+│   │   │   │   ├── model.cpython-39.pyc
+│   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   └── predict.cpython-39.pyc
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   ├── loss.py
+│   │   │   └── ops.py
+│   │   ├── yolo/
+│   │   │   ├── __init__.py
+│   │   │   └── model.py
+│   │   │   ├── classify/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── predict.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── val.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   │   └── val.cpython-39.pyc
+│   │   │   ├── detect/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── predict.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── val.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   │   └── val.cpython-39.pyc
+│   │   │   ├── obb/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── predict.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── val.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   │   └── val.cpython-39.pyc
+│   │   │   ├── pose/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── predict.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── val.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   │   └── val.cpython-39.pyc
+│   │   │   ├── segment/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── predict.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── val.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── predict.cpython-38.pyc
+│   │   │   │   │   ├── predict.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   ├── train.cpython-39.pyc
+│   │   │   │   │   ├── val.cpython-38.pyc
+│   │   │   │   │   └── val.cpython-39.pyc
+│   │   │   ├── world/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── train.py
+│   │   │   │   └── train_world.py
+│   │   │   │   ├── __pycache__/
+│   │   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   │   ├── train.cpython-38.pyc
+│   │   │   │   │   └── train.cpython-39.pyc
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── model.cpython-38.pyc
+│   │   │   │   └── model.cpython-39.pyc
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   └── __init__.cpython-39.pyc
+│   ├── nn/
+│   │   ├── __init__.py
+│   │   ├── autobackend.py
+│   │   └── tasks.py
+│   │   ├── modules/
+│   │   │   ├── __init__.py
+│   │   │   ├── activation.py
+│   │   │   ├── block.py
+│   │   │   ├── conv.py
+│   │   │   ├── head.py
+│   │   │   ├── transformer.py
+│   │   │   └── utils.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── block.cpython-38.pyc
+│   │   │   │   ├── block.cpython-39.pyc
+│   │   │   │   ├── conv.cpython-38.pyc
+│   │   │   │   ├── conv.cpython-39.pyc
+│   │   │   │   ├── head.cpython-38.pyc
+│   │   │   │   ├── head.cpython-39.pyc
+│   │   │   │   ├── transformer.cpython-38.pyc
+│   │   │   │   ├── transformer.cpython-39.pyc
+│   │   │   │   ├── utils.cpython-38.pyc
+│   │   │   │   └── utils.cpython-39.pyc
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── autobackend.cpython-38.pyc
+│   │   │   ├── autobackend.cpython-39.pyc
+│   │   │   ├── tasks.cpython-38.pyc
+│   │   │   └── tasks.cpython-39.pyc
+│   ├── solutions/
+│   │   ├── __init__.py
+│   │   ├── ai_gym.py
+│   │   ├── analytics.py
+│   │   ├── distance_calculation.py
+│   │   ├── heatmap.py
+│   │   ├── object_counter.py
+│   │   ├── parking_management.py
+│   │   ├── predict2.py
+│   │   ├── queue_management.py
+│   │   ├── speed_estimation.py
+│   │   └── streamlit_inference.py
+│   ├── trackers/
+│   │   ├── README.md
+│   │   ├── __init__.py
+│   │   ├── basetrack.py
+│   │   ├── bot_sort.py
+│   │   ├── byte_tracker.py
+│   │   └── track.py
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   ├── gmc.py
+│   │   │   ├── kalman_filter.py
+│   │   │   └── matching.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── autobatch.py
+│   │   ├── benchmarks.py
+│   │   ├── checks.py
+│   │   ├── dist.py
+│   │   ├── downloads.py
+│   │   ├── errors.py
+│   │   ├── files.py
+│   │   ├── instance.py
+│   │   ├── loss.py
+│   │   ├── metrics.py
+│   │   ├── ops.py
+│   │   ├── patches.py
+│   │   ├── plotting.py
+│   │   ├── tal.py
+│   │   ├── torch_utils.py
+│   │   ├── triton.py
+│   │   └── tuner.py
+│   │   ├── callbacks/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── clearml.py
+│   │   │   ├── comet.py
+│   │   │   ├── dvc.py
+│   │   │   ├── hub.py
+│   │   │   ├── mlflow.py
+│   │   │   ├── neptune.py
+│   │   │   ├── raytune.py
+│   │   │   ├── tensorboard.py
+│   │   │   └── wb.py
+│   │   │   ├── __pycache__/
+│   │   │   │   ├── __init__.cpython-38.pyc
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── base.cpython-38.pyc
+│   │   │   │   ├── base.cpython-39.pyc
+│   │   │   │   ├── clearml.cpython-38.pyc
+│   │   │   │   ├── comet.cpython-38.pyc
+│   │   │   │   ├── dvc.cpython-38.pyc
+│   │   │   │   ├── hub.cpython-38.pyc
+│   │   │   │   ├── hub.cpython-39.pyc
+│   │   │   │   ├── mlflow.cpython-38.pyc
+│   │   │   │   ├── neptune.cpython-38.pyc
+│   │   │   │   ├── raytune.cpython-38.pyc
+│   │   │   │   ├── tensorboard.cpython-38.pyc
+│   │   │   │   └── wb.cpython-38.pyc
+│   │   ├── __pycache__/
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── autobatch.cpython-38.pyc
+│   │   │   ├── autobatch.cpython-39.pyc
+│   │   │   ├── checks.cpython-38.pyc
+│   │   │   ├── checks.cpython-39.pyc
+│   │   │   ├── dist.cpython-38.pyc
+│   │   │   ├── dist.cpython-39.pyc
+│   │   │   ├── downloads.cpython-38.pyc
+│   │   │   ├── downloads.cpython-39.pyc
+│   │   │   ├── errors.cpython-38.pyc
+│   │   │   ├── errors.cpython-39.pyc
+│   │   │   ├── files.cpython-38.pyc
+│   │   │   ├── files.cpython-39.pyc
+│   │   │   ├── instance.cpython-38.pyc
+│   │   │   ├── instance.cpython-39.pyc
+│   │   │   ├── loss.cpython-38.pyc
+│   │   │   ├── loss.cpython-39.pyc
+│   │   │   ├── metrics.cpython-38.pyc
+│   │   │   ├── metrics.cpython-39.pyc
+│   │   │   ├── ops.cpython-38.pyc
+│   │   │   ├── ops.cpython-39.pyc
+│   │   │   ├── patches.cpython-38.pyc
+│   │   │   ├── patches.cpython-39.pyc
+│   │   │   ├── plotting.cpython-38.pyc
+│   │   │   ├── plotting.cpython-39.pyc
+│   │   │   ├── tal.cpython-38.pyc
+│   │   │   ├── tal.cpython-39.pyc
+│   │   │   ├── torch_utils.cpython-38.pyc
+│   │   │   └── torch_utils.cpython-39.pyc
+│   ├── __pycache__/
+│   │   ├── __init__.cpython-311.pyc
+│   │   ├── __init__.cpython-38.pyc
+│   │   └── __init__.cpython-39.pyc
+├── yolo_data/
+│   ├── images/
+│   │   ├── test/
+│   │   ├── train/
+│   │   ├── val/
+│   ├── labels/
+│   │   ├── test/
+│   │   ├── train/
+│   │   ├── val/
