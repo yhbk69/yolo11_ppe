@@ -172,3 +172,4 @@ pnnx*
 calibration_*.npy
 
 .qwen/
+assets/
